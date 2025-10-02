@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videy - Video Player</title>
+    <style>
+        /* Base reset - Mirip original Videy: full black, minimal */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: #000; color: #fff; line-height: 1.4; overflow-x: hidden; }
+        
+        /* Override khusus Blogspot: Sembunyikan elemen extra */
+        .post-header, .post-footer, .sidebar, .comments, .blog-pager, .post-share-buttons, .date-header { display: none !important; }
+        .post-body { max-width: none !important; padding: 0 !important; margin: 0 !important; background: #000 !important; }
+        .content-outer, .main-inner { background: #000 !important; }
+        .widget { display: none !important; } /* Hide sidebar */
+        
+        /* Header - Tipis seperti original */
+        header { background: rgba(0,0,0,0.9); padding: 8px 15px; text-align: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #333; }
+        header h1 { font-size: 1.4em; font-weight: normal; }
+        header a { color: #fff; text-decoration: none; }
+        
+        /* Main - Full-width video centered */
+        main { padding: 15px; display: flex; justify-content: center; align-items: center; min-height: calc(100vh - 100px); }
+        .video-wrapper { position: relative; width: 100%; max-width: 800px; height: 0; padding-bottom: 56.25%; /* 16:9 exact seperti original */ background: #000; border-radius: 0; box-shadow: none; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        
+        /* Footer - Minimal seperti original */
+        footer { background: #000; padding: 10px; text-align: center; font-size: 0.8em; color: #666; border-top: 1px solid #333; }
+        
+        /* Responsive - Optimized untuk Android mobile */
+        @media (max-width: 768px) {
+            header { padding: 5px 10px; }
+            header h1 { font-size: 1.1em; }
+            main { padding: 5px; min-height: calc(100vh - 80px); }
+            .video-wrapper { padding-bottom: 56.25%; } /* Tetap 16:9, full-width no crop */
+            footer { padding: 8px; font-size: 0.75em; }
+        }
+        
+        @media (max-width: 480px) {
+            body { font-size: 14px; }
+            main { padding: 0; } /* Edge-to-edge di small screen */
+            .video-wrapper iframe { /* Tambah untuk touch: no extra padding */ }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="https://videy.co">Videy</a></h1>
+    </header>
+    
+    <main>
+        <div class="video-wrapper">
+            <iframe src="https://videy.co/v/?id=5hkY4jrU1" 
+                    title="Videy Video Player" 
+                    allowfullscreen 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer">
+            </iframe>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; Videy - Free Video Hosting</p>
+    </footer>
+</body>
+</html>
